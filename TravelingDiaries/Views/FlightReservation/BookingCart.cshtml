@@ -62,7 +62,7 @@
                
             </td>
             <td>
-                <button class="btn btn-danger" ><a style="text-decoration: none;color:white;" asp-action="Delete" asp-route-id="@item.PassengerId"> Cancel Ticket</a> </button>
+                <button onclick="myFunction()" class="btn btn-danger" ><a style="text-decoration: none;color:white;" asp-action="Delete" asp-route-id="@item.PassengerId"> Cancel Ticket</a> </button>
 
        
             </td>
@@ -70,3 +70,24 @@
 }
     </tbody>
 </table>
+
+<script>
+function myFunction() {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                Swal("Poof! Your imaginary file has been deleted!", {
+                    icon: "success",
+                });
+            } else {
+                Swal("Your imaginary file is safe!");
+            }
+        });
+}
+</script>

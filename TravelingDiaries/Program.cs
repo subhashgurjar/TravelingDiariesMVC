@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TravelingDiaries.Models;
 using Microsoft.AspNetCore.Identity;
 using Stripe;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.Configure<StripeSettings>(builder.Configuration.GetSection("Str
 
 //shopping cart constructor
 builder.Services.AddScoped<ShoppingCart>(sp => ShoppingCart.GetCart(sp));
+
+builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
 
 //AppDBContext connetion

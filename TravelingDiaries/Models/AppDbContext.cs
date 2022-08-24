@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TravelingDiaries.Models;
 
 namespace TravelingDiaries.Models
 {
@@ -683,5 +684,7 @@ namespace TravelingDiaries.Models
 
 
         }
+
+        public DbSet<TravelingDiaries.Models.HotelMini>? HotelMini { get; set; }
     }
 }
